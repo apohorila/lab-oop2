@@ -313,17 +313,14 @@ namespace MauiApp26
     
     try
     {
-        // 1. ГЕНЕРАЦІЯ КОНТЕНТУ
         var saver = Saver.SaverFactory.GetSaver(selectedFormat);
         string fileContent = saver.GenerateContent(resultsHTML.Cast<Parsers.Student>().ToList()); 
 
         string fileName = selectedFormat == "XML" ? "students_filtered.xml" : "students_filtered.html";
         
-        // Перетворюємо рядок у потік байтів для FileSaver
         using var stream = new System.IO.MemoryStream(System.Text.Encoding.UTF8.GetBytes(fileContent));
         
-        // 2. ВИКЛИК СИСТЕМНОГО ДІАЛОГУ "Зберегти як..."
-        // Використовуємо глобальне повне ім'я, щоб уникнути помилок using
+
         var result = await global::CommunityToolkit.Maui.Storage.FileSaver.SaveAsync(
             fileName, 
             stream, 
@@ -332,13 +329,12 @@ namespace MauiApp26
             
         if (!string.IsNullOrEmpty(result.FilePath))
         {
-            // Успіх: користувач вибрав шлях і файл збережено
             logger.Log("Збереження", $"Файл збережено у форматі {selectedFormat} за шляхом: {result.FilePath}");
             await DisplayAlert("Успіх", $"Файл успішно збережено.\nШлях: {result.FilePath}", "OK");
         }
         else
         {
-            // Користувач скасував діалог
+
             logger.Log("Збереження", "Збереження скасовано користувачем.");
         }
     }
