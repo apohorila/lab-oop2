@@ -6,50 +6,58 @@
     <ScrollView>
         <VerticalStackLayout
         Padding="20"
-        Spacing="20">
+        Spacing="8"
+        >
 
             <HorizontalStackLayout
-            Padding="0,10"
+            Padding="0,5"
             HorizontalOptions="FillAndExpand"
-            Spacing="10"
-            VerticalOptions="Start">
+            Spacing="15"
+            VerticalOptions="Start"
+            Margin="0,0,0,10">
 
                 <Button
                 Text="Завантажити"
                 Clicked="OnLoadFileClicked"
-                HorizontalOptions="End" />
+                HorizontalOptions="End"
+                Style="{StaticResource LightAccentButton}" />
 
                 <Button
                 Text="Довідка"
                 Clicked="OnHelpClicked"
-                HorizontalOptions="End" />
+                HorizontalOptions="End" 
+                Style="{StaticResource LightAccentButton}"/>
 
                 <Button
-                Text="Save"
+                Text="Зберегти"
                 Clicked="OnHTMLButtonClicked"
                 HorizontalOptions="End"
+                Style="{StaticResource LightAccentButton}"
                 />
 
                 <Button
                 Text="Вихід"
                 Clicked="OnExitClicked"
-                HorizontalOptions="End" />
+                HorizontalOptions="End" 
+                Style="{StaticResource ExitButton}"/>
             </HorizontalStackLayout>
             <Label x:Name="selectedLbl"/>
-            <Label Text="Оберіть тип парсера та атрибут для пошуку" FontSize="Medium" Margin="0,10,0,10"/>
+            <Label Text="Оберіть тип парсера та атрибут для пошуку" FontSize="Medium" Margin="0,30,0,40"/>
 
-            <HorizontalStackLayout Spacing="10" VerticalOptions="Start" HeightRequest="60">
+            <HorizontalStackLayout Spacing="15" VerticalOptions="Start" HeightRequest="60">
                 <HorizontalStackLayout WidthRequest="250">
                     <RadioButton x:Name="rbDOM" 
                     Content="DOM" 
                     GroupName="ParserType" 
                     CheckedChanged="OnParserTypeChanged"
                     IsChecked="True"
+                    Margin="0,0,10,0"
                     />
                     <RadioButton x:Name="rbSAX" 
                     Content="SAX" 
                     GroupName="ParserType" 
-                    CheckedChanged="OnParserTypeChanged" />
+                    CheckedChanged="OnParserTypeChanged"
+                    Margin="0,0,10,0" />
                     <RadioButton x:Name="rbLINQ" 
                     Content="LINQ" 
                     GroupName="ParserType" 
@@ -59,31 +67,31 @@
                 <HorizontalStackLayout Spacing="20" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
                     <Picker x:Name="FacultyPicker" 
                         Title="Факультет" 
-                        WidthRequest="150" 
+                        WidthRequest="-1" 
                         HeightRequest="60"
                         IsEnabled="False"
                         SelectedIndexChanged="OnFacultySelected"/>
                     <Picker x:Name="DepartmentPicker" 
                         Title="Кафедра" 
-                        WidthRequest="150" 
+                        WidthRequest="-1" 
                         HeightRequest="60"
                         IsEnabled="False"
                         SelectedIndexChanged="OnDepartmentSelected"/>
                     <Picker x:Name="CoursePicker" 
                         Title="Курс" 
-                        WidthRequest="150" 
+                        WidthRequest="-1" 
                         HeightRequest="60"
                         IsEnabled="False"
                         SelectedIndexChanged="OnCourseSelected"/>
                     <Picker x:Name="NamePicker" 
                           Title="П.І.Б" 
-                          WidthRequest="150" 
+                          WidthRequest="-1" 
                           HeightRequest="60"
                           IsEnabled="False"
                           SelectedIndexChanged="OnNameSelected"/>
                     <Picker x:Name="SubjectPicker" 
                           Title="Дисципліна" 
-                          WidthRequest="150" 
+                          WidthRequest="-1" 
                           HeightRequest="60"
                           IsEnabled="False"
                           SelectedIndexChanged="OnSubjectSelected"/>  
@@ -91,7 +99,7 @@
             </HorizontalStackLayout>
 
             <HorizontalStackLayout Spacing="10">
-                <Button Text="Очистити" Clicked="OnClearClicked" />
+                <Button Text="Очистити" Clicked="OnClearClicked" Style="{StaticResource LightAccentButton}" Margin="0,10,0,20"/>
             </HorizontalStackLayout>
 
             <ScrollView>
