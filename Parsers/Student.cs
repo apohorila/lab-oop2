@@ -16,6 +16,6 @@ namespace Parsers
         public string Department { get; set; }
         public string Course { get; set; } 
         public List<Grade> Grades { get; set; } = new List<Grade>();
-        public string AllGradesDisplay => string.Join("; ", Grades.Select(g => $"{g.Subject}: {g.Mark} ({g.Semester})"));
+        public string AllGradesDisplay => string.Join("; ", Grades.Select(g => $"{g.Subject}: {g.Mark}"));
     }
 }
